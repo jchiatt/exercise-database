@@ -1,10 +1,14 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react'
+import { Header, Footer } from './Layouts'
+import Exercises from './Exercises'
 
 class App extends Component {
   render() {
     return (
       <Fragment>
-        <h1>App</h1>
+        <Header />
+        <Exercises />
+        <Footer />
       </Fragment>
     )
   }

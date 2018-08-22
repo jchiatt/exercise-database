@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react'
+import { AppBar, Toolbar, Typography } from '@material-ui/core'
 
-const Header = () => (
-  <div>
-    <h1>Header</h1>
-  </div>
+const Header = props => (
+  <AppBar position="static">
+    <Toolbar>
+      <Typography variant="headline" color="inherit">
+        Exercise Database
+      </Typography>
+    </Toolbar>
+  </AppBar>
 )
 
-export default Header;
+export default Header
