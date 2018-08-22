@@ -23,14 +23,25 @@ class App extends Component {
     )
   }
 
+  handleCategorySelected = category => {
+    this.setState({
+      category
+    })
+  }
+
   render() {
-    const { exercises } = this.getExercisesByMuscles();
+    const exercises = this.getExercisesByMuscles();
+    const { category } = this.state;
 
     return (
       <Fragment>
         <Header />
         <Exercises exercises={exercises} />
-        <Footer muscles={muscles} />
+        <Footer 
+          category={category}
+          muscles={muscles} 
+          onSelect={this.handleCategorySelected} 
+        />
       </Fragment>
     )
   }
