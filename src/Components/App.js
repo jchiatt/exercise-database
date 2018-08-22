@@ -14,7 +14,7 @@ class App extends Component {
       this.state.exercises.reduce((exercises, exercise) => {
         const { muscles } = exercise
 
-        exercises[muscles] = exercises [muscles]
+        exercises[muscles] = exercises[muscles]
           ? [...exercises[muscles], exercise]
           : [exercise]
       
@@ -30,9 +30,18 @@ class App extends Component {
     })
   }
 
-  handleExerciseSelected = id => {
+  handleExerciseSelect = id => {
     this.setState(({exercises}) => ({
       exercise: exercises.find(exercise => exercise.id === id)
+    }))
+  }
+
+  handleExerciseCreate = exercise => {
+    this.setState(({exercises}) => ({
+      exercises: [
+        ...exercises,
+        exercise
+      ]
     }))
   }
 
@@ -42,12 +51,15 @@ class App extends Component {
 
     return (
       <Fragment>
-        <Header />
+        <Header 
+          muscles={muscles}
+          onExerciseCreate={this.handleExerciseCreate}
+        />
         <Exercises 
         exercise={exercise}
         category={category} 
         exercises={exercises} 
-        onSelect={this.handleExerciseSelected}/>
+        onSelect={this.handleExerciseSelect}/>
         <Footer 
           category={category}
           muscles={muscles} 
